@@ -7,24 +7,11 @@ import {
   SparklesIcon,
 } from "lucide-react";
 import BackgroundShaderClient from "../background-shader-client";
-
-interface ScrollIndicatorProps {
-  className?: string;
-}
-
-const ScrollIndicator = ({ className = "" }: ScrollIndicatorProps) => {
-  return (
-    <div className={`flex flex-col items-center ${className}`}>
-      <div className="relative flex h-10 w-6 items-center justify-center rounded-full border-2 border-black/50 p-1">
-        <div className="absolute h-2 w-1 animate-scroll-bounce rounded-full bg-black/50" />
-      </div>
-    </div>
-  );
-};
+import { ScrollIndicator } from "./scroll-indicator";
 
 export const Hero = () => {
   return (
-    <div className="container relative mx-auto my-8 flex flex-col gap-4 overflow-hidden lg:flex-row">
+    <div className="container relative mx-auto flex flex-col gap-4 overflow-hidden pb-6 lg:flex-row">
       {/* Left Content */}
       <div className="bite-br flex flex-1 animate-fade-in-left items-center justify-center overflow-hidden rounded-3xl bg-[#f3ff8e] px-8 py-12 lg:px-16">
         <BackgroundShaderClient className="absolute inset-0 z-[-1] h-screen w-screen brightness-95" />
@@ -100,7 +87,7 @@ export const Hero = () => {
 
         {/* Floating Elements */}
         <div className="relative h-full p-8">
-          <div className="absolute right-8 top-8 flex animate-fade-in-up-delay-1 items-center gap-3 rounded-full bg-white/95 p-4 shadow-lg backdrop-blur-sm">
+          <div className="absolute right-4 top-4 flex animate-fade-in-up-delay-1 items-center gap-3 rounded-2xl bg-white/95 p-4 shadow-lg backdrop-blur-sm">
             <div className="h-12 w-12 overflow-hidden rounded-full">
               <Image
                 src="https://randomuser.me/api/portraits/women/32.jpg"
@@ -109,7 +96,10 @@ export const Hero = () => {
                 height={48}
               />
             </div>
-            <span className="pr-3 font-medium">We & Our Volunteers</span>
+            <span className="flex items-center gap-2 pr-1 font-medium">
+              We & Our Volunteers
+              <CircleArrowOutUpRight className="size-4" />
+            </span>
           </div>
 
           {/* Environmental Issues Tags */}
@@ -156,7 +146,7 @@ export const Hero = () => {
       </div>
 
       {/* Add ScrollIndicator at the bottom */}
-      <ScrollIndicator className="absolute bottom-0 left-[54%] animate-fade-in-up-delay-7" />
+      <ScrollIndicator className="absolute bottom-0 left-[52%] animate-fade-in-up-delay-7" />
     </div>
   );
 };
