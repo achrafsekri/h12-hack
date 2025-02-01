@@ -85,6 +85,10 @@ export default {
             height: "0",
           },
         },
+        "bounce-slow": {
+          "0%, 100%": { transform: "translateY(-15%)" },
+          "50%": { transform: "translateY(15%)" },
+        },
         shine: {
           "0%": { backgroundPosition: "200% 0" },
           "25%": { backgroundPosition: "-200% 0" },
@@ -122,6 +126,7 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "bounce-slow": "bounce-slow 2.5s ease-in-out infinite",
         "scroll-bounce": "scroll-bounce 1.5s cubic-bezier(0.64, 0, 0.78, 0) infinite",
         "fade-in": "fade-in 1s cubic-bezier(0.16, 1, 0.3, 1)",
         "fade-in-up": "fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1)",

@@ -6,8 +6,12 @@ import { type Metadata } from "next";
 import { BreakpointIndicator } from "~/components/breakpoint-indicator";
 import { Header } from "~/components/shared/header";
 import Assistant from "~/components/shared/assistant";
+
+import Footer from "~/components/shared/footer";
+
 import { ToastProvider } from "~/components/ui/toast";
 import { Toaster } from "sonner";
+
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -31,12 +35,16 @@ export default function RootLayout({
     >
       <body>
         <Header />
+
         <ToastProvider>
           <Assistant />
           {children}
           <BreakpointIndicator />
           <Toaster richColors />
+          <Footer />
         </ToastProvider>
+        
+
       </body>
     </html>
   );
