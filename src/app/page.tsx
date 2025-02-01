@@ -8,9 +8,9 @@ export default function HomePage() {
         <div className="container px-4 py-24 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-4">
             <div className="space-y-4">
-              <h1 className="text-4xl font-medium tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+              <h1 className="text-4xl tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
                 welcome to a{" "}
-                <span className="italic text-[#ff6b6b]">calmer</span> internet
+                <span className="font-serif italic text-[#ff6b6b]">calmer</span> internet
               </h1>
               <p className="mx-auto max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
                 Beautifully designed, privacy-focused, and packed with features.
