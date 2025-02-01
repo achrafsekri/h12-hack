@@ -1,11 +1,9 @@
 import { Button } from "~/components/ui/button";
-import { Header } from "~/components/shared/header";
 import Link from "next/link";
 
 export default function HomePage() {
   return (
     <>
-      <Header />
       <main className="flex min-h-screen flex-col items-center justify-center bg-background text-center">
         <div className="container px-4 py-24 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-4">

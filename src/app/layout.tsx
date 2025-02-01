@@ -3,6 +3,7 @@ import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import { BreakpointIndicator } from "~/components/breakpoint-indicator";
+import { Header } from "~/components/shared/header";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
+        <Header />
         {children}
         <BreakpointIndicator />
       </body>
