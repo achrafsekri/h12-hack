@@ -1,3 +1,4 @@
+import { Coins } from "lucide-react";
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
 import {
@@ -6,15 +7,13 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "~/components/ui/navigation-menu";
-import { Sun, ChevronDown } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "~/components/ui/dropdown-menu";
+import { getUserPoints } from "~/lib/get-user-points";
+import { auth } from "~/server/auth";
 
-export function Header() {
+export async function Header() {
+  const session = await auth();
+  const user = session?.user;
+  const points = await getUserPoints();
   return (
     <header className="fixed left-1/2 right-auto top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-7xl -translate-x-1/2 rounded-full bg-background/80 backdrop-blur-sm">
       <div className="animate-fade-in-up-delay-8 container grid h-14 grid-cols-3 items-center px-4">
@@ -53,15 +52,24 @@ export function Header() {
 
         {/* Right Navigation */}
         <div className="flex items-center justify-end gap-4">
-          <Button variant="link" className="" asChild>
-            <Link href="/contact">Contact Us</Link>
-          </Button>
-          <Button
-            variant="secondary"
-            className="flex items-center gap-1 bg-muted"
-          >
-            <Link href="/sign-in">Sign In</Link>
-          </Button>
+          {!user?.email ? (
+            <Button
+              variant="secondary"
+              className="flex items-center gap-1 bg-muted"
+            >
+              <Link href="/sign-in">Sign In</Link>
+            </Button>
+          ) : (
+            <div className="flex border border-dashed p-2 rounded-full text-sm items-center gap-1 font-semibold">
+              <Coins className="size-4" />
+              {points} points
+            </div>
+          )}
+          {user && (
+            <Button variant="link" className="" asChild>
+              <Link href="/sign-out">Sign Out</Link>
+            </Button>
+          )}
         </div>
       </div>
     </header>
