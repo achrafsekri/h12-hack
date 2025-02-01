@@ -29,7 +29,7 @@ export default function RootLayout({
     >
       <body>
         <Header />
-        {/* <Assistant /> */}
+        <Assistant />
         {children}
         <BreakpointIndicator />
       </body>
