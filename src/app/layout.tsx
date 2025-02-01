@@ -2,7 +2,7 @@ import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
-import { BreakpointIndicator } from "~/components/shared/breakpoint-indicator";
+import { BreakpointIndicator } from "~/components/breakpoint-indicator";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
