@@ -18,11 +18,11 @@ function TextRotateComponent() {
           </motion.span>
           <TextRotate
             texts={[
-              "Heritage",
-              "Berber Culture",
-              "Roman History",
-              "Ancient Art",
-              "Epic Architecture",
+              "Heritage ✽",
+              "Berber ⟰ Culture ",
+              "Roman ✽ History",
+              "Ancient Art ✽",
+              "Epic ⟰ Architecture",
             ]}
             mainClassName="text-white px-2 sm:px-2 md:px-3 bg-[#ff5941] overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
             staggerFrom={"last"}
