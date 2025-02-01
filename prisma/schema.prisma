@@ -49,6 +49,8 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    Selfie        Selfie[]
+    Like          Like[]
 }
 
 model VerificationToken {
@@ -57,4 +59,23 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Selfie {
+    id        String   @id @default(cuid())
+    userId    String
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    imageUrl  String
+    site      String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    likes     Like[]
+}
+
+model Like {
+    id       String @id @default(cuid())
+    selfieId String
+    selfie   Selfie @relation(fields: [selfieId], references: [id], onDelete: Cascade)
+    userId   String
+    user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
