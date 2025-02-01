@@ -637,6 +637,11 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
+"@butterfail/tailwindcss-inverted-radius@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@butterfail/tailwindcss-inverted-radius/-/tailwindcss-inverted-radius-0.1.2.tgz#31c19ae8aa8dbe79a80eab82e3ab51d194f9899c"
+  integrity sha512-BCVx7nuSsWCMxHQ4gUih56bEcCP9V4OPAaXLqS+Wqh8Kl06ioHzkP/cgoMGDY3XuZbjwaHTeKMDE5d+t1cl/Eg==
+
 "@cfworker/json-schema@^4.0.2":
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/@cfworker/json-schema/-/json-schema-4.1.1.tgz#4a2a3947ee9fa7b7c24be981422831b8674c3be6"
