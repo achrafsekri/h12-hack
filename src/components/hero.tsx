@@ -8,11 +8,12 @@ export const Hero = () => {
         <div className="space-y-4">
           <h1 className="text-4xl tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             welcome to a{" "}
-            <span className="font-serif italic text-[#ff6b6b]">calmer</span> internet
+            <span className="font-serif italic text-[#ff6b6b]">calmer</span>{" "}
+            internet
           </h1>
           <p className="mx-auto max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-            Beautifully designed, privacy-focused, and packed with features.
-            We care about your experience, not your data.
+            Beautifully designed, privacy-focused, and packed with features. We
+            care about your experience, not your data.
           </p>
         </div>
 
@@ -20,12 +21,7 @@ export const Hero = () => {
           <Button asChild size="lg" className="rounded-full">
             <Link href="/sites">Get Started →</Link>
           </Button>
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="rounded-full"
-          >
+          <Button asChild variant="outline" size="lg" className="rounded-full">
             <Link href="/feed">Explore Feed</Link>
           </Button>
         </div>
@@ -38,4 +34,4 @@ export const Hero = () => {
       </div>
     </div>
   );
-}; 
+};
