@@ -8,7 +8,7 @@ export default function HomePage() {
     <main className="mx-auto mt-24 max-w-7xl">
       <Hero />
       <TextRotateComponent />
-      <TextReveal text="Discover Sbiba's Heritage ✽ Berber ⟰ Culture ✽ Roman ⟰ History ✽ Ancient Art ✽ Epic ⟰ Architecture" />
+      <TextReveal text="Where ancient Berber wisdom meets Roman grandeur, Sbiba is a living museum of Mediterranean civilizations ✧" />
       <TimeLineHistory />
     </main>
   );
