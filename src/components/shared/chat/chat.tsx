@@ -16,7 +16,7 @@ export default function ClientComponent({
   const configId = process.env["NEXT_PUBLIC_HUME_CONFIG_ID"];
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="relative h-full w-full">
       <VoiceProvider
         auth={{ type: "accessToken", value: accessToken }}
         configId={configId}

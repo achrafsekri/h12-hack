@@ -5,6 +5,7 @@ import { Mic, MicOff, Phone } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Toggle } from "@/components/ui/toggle";
 import { cn } from "@/lib/utils";
+import MicFFT from "./micFFT";
 
 export default function Controls() {
   const { disconnect, status, isMuted, unmute, mute, micFft } = useVoice();
@@ -12,8 +13,8 @@ export default function Controls() {
   return (
     <div
       className={cn(
-        "sticky bottom-0 w-full p-4 flex items-center justify-center",
-        "bg-gradient-to-t from-card via-card/90 to-card/0"
+        "fixed bottom-0 flex w-full items-center justify-center p-4",
+        "bg-gradient-to-t from-card via-card/90 to-card/0",
       )}
     >
       <AnimatePresence>
@@ -22,7 +23,7 @@ export default function Controls() {
             initial={{ y: "100%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "100%", opacity: 0 }}
-            className="p-4 bg-card border border-border rounded-lg shadow-sm flex items-center gap-4"
+            className="flex items-center gap-4 rounded-lg border border-border bg-card p-4 shadow-sm"
           >
             <Toggle
               pressed={!isMuted}
@@ -42,7 +43,7 @@ export default function Controls() {
             </Toggle>
 
             <div className={"relative grid h-8 w-48 shrink grow-0"}>
-              {/* <MicFFT fft={micFft} className={"fill-current"} /> */}
+              <MicFFT fft={micFft} className={"fill-current"} />
             </div>
 
             <Button
