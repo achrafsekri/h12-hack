@@ -17,17 +17,11 @@ import {
 export function Header() {
   return (
     <header className="fixed left-1/2 right-auto top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-7xl -translate-x-1/2 rounded-full bg-background/80 backdrop-blur-sm">
-      <div className="container grid h-14 animate-fade-in-up-delay-8 grid-cols-3 items-center px-4">
+      <div className="animate-fade-in-up-delay-8 container grid h-14 grid-cols-3 items-center px-4">
         {/* Left Navigation */}
         <NavigationMenu>
           <NavigationMenuList className="flex gap-1">
-            <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink className="group inline-flex h-9 w-max items-center justify-center rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
-                  Home
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
+            <NavigationMenuItem></NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/sites" legacyBehavior passHref>
                 <NavigationMenuLink className="group inline-flex h-9 w-max items-center justify-center rounded-full bg-muted px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
@@ -59,32 +53,14 @@ export function Header() {
 
         {/* Right Navigation */}
         <div className="flex items-center justify-end gap-4">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="secondary"
-                className="flex items-center gap-1 bg-muted"
-              >
-                Mission <ChevronDown className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem>
-                <Link href="/mission">Our Mission</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/about">About Us</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <Button variant="secondary" size="icon" className="bg-muted">
-            <Sun className="h-5 w-5" />
-            <span className="sr-only">Toggle theme</span>
-          </Button>
-
-          <Button variant="secondary" className="bg-muted" asChild>
+          <Button variant="link" className="" asChild>
             <Link href="/contact">Contact Us</Link>
+          </Button>
+          <Button
+            variant="secondary"
+            className="flex items-center gap-1 bg-muted"
+          >
+            <Link href="/sign-in">Sign In</Link>
           </Button>
         </div>
       </div>

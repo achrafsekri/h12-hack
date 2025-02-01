@@ -21,6 +21,8 @@ export const env = createEnv({
     HUME_SECRET_KEY: z.string(),
     TOGETHER_API_KEY: z.string(),
     OPENAI_API_KEY: z.string(),
+    RESEND_API_KEY: z.string(),
+    EMAIL_SENDER: z.string(),
   },
 
   /**
@@ -49,6 +51,8 @@ export const env = createEnv({
     NEXT_PUBLIC_HUME_CONFIG_ID: process.env.NEXT_PUBLIC_HUME_CONFIG_ID,
     TOGETHER_API_KEY: process.env.TOGETHER_API_KEY,
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
+    EMAIL_SENDER: process.env.EMAIL_SENDER,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
