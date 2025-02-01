@@ -5,6 +5,7 @@ import { Playfair_Display } from "next/font/google";
 import { type Metadata } from "next";
 import { BreakpointIndicator } from "~/components/breakpoint-indicator";
 import { Header } from "~/components/shared/header";
+import Assistant from "~/components/shared/assistant";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable} ${playfair.variable}`}>
       <body>
         <Header />
+        <Assistant />
         {children}
         <BreakpointIndicator />
       </body>
