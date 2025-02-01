@@ -36,6 +36,10 @@ const config = {
         protocol: "https",
         hostname: "api.together.ai",
       },
+      {
+        protocol: "https",
+        hostname: "enlace-freelance.s3.eu-central-1.amazonaws.com",
+      },
     ],
     dangerouslyAllowSVG: true,
   },
