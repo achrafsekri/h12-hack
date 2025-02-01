@@ -11,18 +11,21 @@ import {
   DialogFooter,
 } from "../ui/dialog";
 import { Button } from "../ui/button";
-import { PlusIcon, SparkleIcon, SparklesIcon } from "lucide-react";
+import { Download, PlusIcon, SparkleIcon, SparklesIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useImageUpload } from "@/hooks/use-image-upload";
 import { ImagePlus, X, Upload, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useState } from "react";
 import { cn } from "@/lib/utils";
+import { postPic } from "~/actions/post-pic";
+import { toast } from "sonner";
 
 const AddPost = () => {
   const [file, setFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
 
   const {
     previewUrl,
@@ -98,6 +101,7 @@ const AddPost = () => {
         body: JSON.stringify({ url: data.url }),
       });
       const reimagineData = await reimagineResponse.json();
+      console.log("reimagineData", reimagineData);
       setResult(reimagineData.url);
       //   You might want to handle the response data
     } catch (error) {
@@ -108,10 +112,36 @@ const AddPost = () => {
     }
   };
 
+  const postImage = async (imageUrl: string) => {
+    try {
+      setIsLoading(true);
+      await postPic(imageUrl);
+      toast.success("Image posted successfully");
+      setResult(null);
+      setOpen(false);
+    } catch (error) {
+      console.error("Error posting image:", error);
+      toast.error("Error posting image");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleDownload = async () => {
+    if (!result) return;
+    const response = await fetch(result);
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "sbiba.png";
+    a.click();
+  };
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button effect="shine">
+        <Button effect="shine" onClick={() => setOpen(true)}>
           <SparklesIcon className="size-4 transition-transform duration-300 group-hover:scale-110" />
           <span>Reimagine</span>
         </Button>
@@ -219,20 +249,42 @@ const AddPost = () => {
           </div>
         )}
         <DialogFooter>
-          <Button
-            type="submit"
-            onClick={handleUpload}
-            disabled={!file || isLoading}
-          >
-            {isLoading ? (
-              <>
-                <SparklesIcon className="mr-2 h-4 w-4 animate-spin" />
-                Reimagining...
-              </>
-            ) : (
-              "Upload"
-            )}
-          </Button>
+          {result && (
+            <Button onClick={handleDownload} variant="outline">
+              <Download className="mr-1 h-4 w-4" />
+              Download
+            </Button>
+          )}
+          {result ? (
+            <Button onClick={() => postImage(result)}>
+              {isLoading ? (
+                <>
+                  <SparklesIcon className="mr-1 h-4 w-4 animate-spin" />
+                  Posting...
+                </>
+              ) : (
+                <>
+                  <SparklesIcon className="mr-1 h-4 w-4" />
+                  Post
+                </>
+              )}
+            </Button>
+          ) : (
+            <Button
+              type="submit"
+              onClick={handleUpload}
+              disabled={!file || isLoading}
+            >
+              {isLoading ? (
+                <>
+                  <SparklesIcon className="mr-2 h-4 w-4 animate-spin" />
+                  Reimagining...
+                </>
+              ) : (
+                "Upload"
+              )}
+            </Button>
+          )}
         </DialogFooter>
       </DialogContent>
     </Dialog>

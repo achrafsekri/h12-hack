@@ -1,11 +1,9 @@
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import Together from "together-ai";
-import OpenAI from "openai";
-import fs from "fs";
-import { Blob } from "buffer";
 import { auth } from "~/server/auth";
 import { db } from "~/server/db";
-const openai = new OpenAI();
+import { revalidatePath } from "next/cache";
+import { randomUUID } from "crypto";
 
 const together = new Together({
   apiKey: process.env.TOGETHER_API_KEY!,
@@ -20,13 +18,14 @@ const s3Client = new S3Client({
 });
 
 export async function POST(request: Request) {
-  const session = await auth();
-  if (!session?.user) {
-    return new Response(JSON.stringify({ error: "Unauthorized" }), {
-      status: 401,
-    });
-  }
   try {
+    const session = await auth();
+    const user = session?.user;
+    if (!user) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+      });
+    }
     const body = await request.json();
     const { url } = body;
     const response = await together.images.create({
@@ -39,28 +38,25 @@ export async function POST(request: Request) {
       // @ts-ignore
       image_url: url,
     });
+    const key = randomUUID();
+    // create a buffer from the image
+    const buffer = await fetch(response.data[0].url).then((res) =>
+      res.arrayBuffer(),
+    );
 
     //save the image to s3
     const uploadParams = {
       Bucket: process.env.AWS_S3_BUCKET!,
-      Key: `uploads/${Date.now()}_${response.data[0].url}`,
-      Body: response.data[0].url,
+      Key: key,
+      Body: buffer,
       ContentType: "image/png",
     };
 
-    const uploadResponse = await s3Client.send(
-      new PutObjectCommand(uploadParams),
-    );
+    await s3Client.send(new PutObjectCommand(uploadParams));
 
-    const uploadUrl = `https://${process.env.AWS_S3_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com/${uploadParams.Key}`;
+    const uploadUrl = `https://${process.env.AWS_S3_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`;
 
-    //save the image to the database
-    const selfie = await db.selfie.create({
-      data: {
-        imageUrl: uploadUrl,
-        userId: session.user.id,
-      },
-    });
+    revalidatePath("/");
 
     return new Response(JSON.stringify({ url: uploadUrl }), {
       status: 200,
