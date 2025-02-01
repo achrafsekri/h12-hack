@@ -23,7 +23,19 @@ const config = {
       {
         protocol: "https",
         hostname: "randomuser.me",
-      }
+      },
+      {
+        protocol: "https",
+        hostname: "www.pexels.com",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "api.together.ai",
+      },
     ],
     dangerouslyAllowSVG: true,
   },

@@ -85,6 +85,11 @@ export default {
             height: "0",
           },
         },
+        shine: {
+          "0%": { backgroundPosition: "200% 0" },
+          "25%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "-200% 0" },
+        },
         "scroll-bounce": {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(4px)" },
@@ -130,6 +135,7 @@ export default {
         "fade-in-up-delay-8": "fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 2400ms both",
         "fade-in-right": "fade-in-right 1s cubic-bezier(0.16, 1, 0.3, 1) 200ms both",
         "fade-in-left": "fade-in-right 1s cubic-bezier(0.16, 1, 0.3, 1) 2000ms both",
+        shine: "shine 3s ease-out infinite",
       },
     },
   },

@@ -47,10 +47,11 @@ model User {
     email         String?   @unique
     emailVerified DateTime?
     image         String?
+    points        Int       @default(0)
     accounts      Account[]
     sessions      Session[]
-    Selfie        Selfie[]
-    Like          Like[]
+    likes         Like[]
+    selfies       Selfie[]
 }
 
 model VerificationToken {
@@ -63,13 +64,14 @@ model VerificationToken {
 
 model Selfie {
     id        String   @id @default(cuid())
-    userId    String
-    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
     imageUrl  String
     site      String
+    points    Int      @default(0)
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     likes     Like[]
+    userId    String
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Like {
@@ -81,12 +83,12 @@ model Like {
 }
 
 model Site {
-  id          String   @id @default(uuid())
-  nom         String
-  addresse    String
-  description String?
-  likes       Int      @default(0)
-  images      String[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+    id          String   @id @default(uuid())
+    nom         String
+    addresse    String
+    description String?
+    likes       Int      @default(0)
+    images      String[]
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
 }
