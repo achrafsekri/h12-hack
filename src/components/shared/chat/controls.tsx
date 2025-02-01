@@ -11,31 +11,18 @@ export default function Controls() {
 
   return (
     <div
-      className={
-        cn(
-          "fixed bottom-0 left-0 w-full p-4 flex items-center justify-center",
-          "bg-gradient-to-t from-card via-card/90 to-card/0",
-        )
-      }
+      className={cn(
+        "sticky bottom-0 w-full p-4 flex items-center justify-center",
+        "bg-gradient-to-t from-card via-card/90 to-card/0"
+      )}
     >
       <AnimatePresence>
         {status.value === "connected" ? (
           <motion.div
-            initial={{
-              y: "100%",
-              opacity: 0,
-            }}
-            animate={{
-              y: 0,
-              opacity: 1,
-            }}
-            exit={{
-              y: "100%",
-              opacity: 0,
-            }}
-            className={
-              "p-4 bg-card border border-border rounded-lg shadow-sm flex items-center gap-4"
-            }
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "100%", opacity: 0 }}
+            className="p-4 bg-card border border-border rounded-lg shadow-sm flex items-center gap-4"
           >
             <Toggle
               pressed={!isMuted}
