@@ -1,9 +1,9 @@
-import { Button } from "~/components/ui/button";
+import { Hero } from "~/components/hero";
 
 export default function HomePage() {
   return (
-    <main>
-      <Button>Click me</Button>
+    <main className="mx-auto max-w-7xl">
+      <Hero />
     </main>
   );
 }
