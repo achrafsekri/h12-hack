@@ -8,7 +8,10 @@ export function TimeLineHistory() {
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 dark:text-neutral-200 md:text-sm">
-            Tunisia gained independence from France in 1956, leading to nationwide development initiatives. In recent years, Sbiba has been recognized for its archaeological significance, with efforts to preserve and study its rich historical heritage.
+            Tunisia gained independence from France in 1956, leading to
+            nationwide development initiatives. In recent years, Sbiba has been
+            recognized for its archaeological significance, with efforts to
+            preserve and study its rich historical heritage.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -34,7 +37,9 @@ export function TimeLineHistory() {
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 dark:text-neutral-200 md:text-sm">
-            During the Tunisian Campaign, Sbiba was near significant military engagements, including the Battle of Kasserine Pass. German forces advanced towards Sbiba Pass as part of their operations.
+            During the Tunisian Campaign, Sbiba was near significant military
+            engagements, including the Battle of Kasserine Pass. German forces
+            advanced towards Sbiba Pass as part of their operations.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -53,7 +58,11 @@ export function TimeLineHistory() {
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 dark:text-neutral-200 md:text-sm">
-            Following the Arab conquest, one of the town's churches, featuring six rows of columns, was converted into a mosque. According to local tradition, the daughter of Jerjir, the last Roman ruler defeated by the Arabs at Sbeitla, fled to the area now known as Sbiba.
+            Following the Arab conquest, one of the town&apos;s churches,
+            featuring six rows of columns, was converted into a mosque.
+            According to local tradition, the daughter of Jerjir, the last Roman
+            ruler defeated by the Arabs at Sbeitla, fled to the area now known
+            as Sbiba.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -72,7 +81,9 @@ export function TimeLineHistory() {
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 dark:text-neutral-200 md:text-sm">
-            A notable Donatist bishop from Sbiba participated in the Council of Carthage, marking the town's significance in early Christian history.
+            A notable Donatist bishop from Sbiba participated in the Council of
+            Carthage, marking the town&apos;s significance in early Christian
+            history.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -91,7 +102,11 @@ export function TimeLineHistory() {
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 dark:text-neutral-200 md:text-sm">
-            The village of Sufes (now Sbiba) was established as a fort during the early Roman Empire and became a colony under Emperor Marcus Aurelius (reigned 161–180 AD). Its inhabitants converted to Christianity by the 2nd century AD, approximately four centuries before the rise of Islam.
+            The village of Sufes (now Sbiba) was established as a fort during
+            the early Roman Empire and became a colony under Emperor Marcus
+            Aurelius (reigned 161–180 AD). Its inhabitants converted to
+            Christianity by the 2nd century AD, approximately four centuries
+            before the rise of Islam.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
