@@ -1,7 +1,5 @@
 import { getHumeAccessToken } from "@/lib/getHumeAccessToken";
 import dynamic from "next/dynamic";
-import { Button } from "@/components/ui/button";
-import { Mic2Icon, Phone } from "lucide-react";
 import {
   Dialog,
   DialogContent,

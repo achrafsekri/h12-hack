@@ -22,10 +22,14 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${playfair.variable}`}>
+    <html
+      suppressHydrationWarning
+      lang="en"
+      className={`${GeistSans.variable} ${playfair.variable}`}
+    >
       <body>
         <Header />
-        <Assistant />
+        {/* <Assistant /> */}
         {children}
         <BreakpointIndicator />
       </body>

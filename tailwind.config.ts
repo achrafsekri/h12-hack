@@ -85,10 +85,51 @@ export default {
             height: "0",
           },
         },
+        "scroll-bounce": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(4px)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "fade-in-up": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(20px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "fade-in-right": {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(-20px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "scroll-bounce": "scroll-bounce 1.5s cubic-bezier(0.64, 0, 0.78, 0) infinite",
+        "fade-in": "fade-in 1s cubic-bezier(0.16, 1, 0.3, 1)",
+        "fade-in-up": "fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1)",
+        "fade-in-up-delay-1": "fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 300ms both",
+        "fade-in-up-delay-2": "fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 600ms both",
+        "fade-in-up-delay-3": "fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 900ms both",
+        "fade-in-up-delay-4": "fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 1200ms both",
+        "fade-in-up-delay-5": "fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 1500ms both",
+        "fade-in-up-delay-6": "fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 1800ms both",
+        "fade-in-up-delay-7": "fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 2100ms both",
+        "fade-in-up-delay-8": "fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 2400ms both",
+        "fade-in-right": "fade-in-right 1s cubic-bezier(0.16, 1, 0.3, 1) 200ms both",
+        "fade-in-left": "fade-in-right 1s cubic-bezier(0.16, 1, 0.3, 1) 2000ms both",
       },
     },
   },
