@@ -1,6 +1,5 @@
 import { Suspense } from "react";
-import { Metadata } from "next";
-import Link from "next/link";
+import { type Metadata } from "next";
 import { UserAuthForm } from "~/components/forms/user-auth-form";
 import { redirect } from "next/navigation";
 import { auth } from "~/server/auth";
