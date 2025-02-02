@@ -40,6 +40,18 @@ const config = {
         protocol: "https",
         hostname: "enlace-freelance.s3.eu-central-1.amazonaws.com",
       },
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
+      },
+      {
+        protocol: "https",
+        hostname: "lp-cms-production.imgix.net",
+      },
+      {
+        protocol: "https",
+        hostname: "nkwazi.s3.eu-west-2.amazonaws.com",
+      },
     ],
     dangerouslyAllowSVG: true,
   },
