@@ -6,6 +6,14 @@ import { format } from "date-fns";
 import LikeButton from "~/components/LikeButton";
 import { auth } from "~/server/auth";
 import { Leaderbord } from "~/components/leaderbord";
+import { ShareButton } from "~/components/share-button";
+import { Info } from "lucide-react";
+import {
+  TooltipContent,
+  Tooltip,
+  TooltipProvider,
+  TooltipTrigger,
+} from "~/components/ui/tooltip";
 
 export default async function FeedPage() {
   const session = await auth();
@@ -23,6 +31,14 @@ export default async function FeedPage() {
       userId: userId,
     },
   });
+
+  const topUsers = await db.user.findMany({
+    orderBy: {
+      points: "desc",
+    },
+    take: 10,
+  });
+
   return (
     <main className="container mx-auto mt-20 max-w-7xl py-6">
       <div className="flex items-center justify-between gap-4 px-4">
@@ -30,7 +46,27 @@ export default async function FeedPage() {
           Selfies taken at Sbiba
         </h1>
         <div className="flex items-center gap-2">
-          <Leaderbord />
+          <TooltipProvider delayDuration={100}>
+            <Tooltip>
+              <TooltipTrigger>
+                <Info className="mr-2 size-4" />
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>
+                  This is a community project. Share your selfie to earn points
+                  and help us build a better Sbiba.
+                  <br />
+                  Reward system:
+                  <br />
+                  - 1 point for each share
+                  <br />
+                  - 1 point for each like
+                  <br />- 10 point for each post you share
+                </p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <Leaderbord topUsers={topUsers} />
           <AddPost />
         </div>
       </div>
@@ -43,6 +79,10 @@ export default async function FeedPage() {
             <LikeButton
               selfieId={selfie.id}
               isLiked={userLikes.some((like) => like.selfieId === selfie.id)}
+            />
+            <ShareButton
+              selfieId={selfie.id}
+              title={`Selfie ${selfie.id} at Sbiba`}
             />
             <Image
               src={selfie.imageUrl}
@@ -73,6 +113,11 @@ export default async function FeedPage() {
             </div>
           </Card>
         ))}
+        {selfies.length === 0 && (
+          <div className="col-span-full flex items-center justify-center">
+            <p className="text-sm text-gray-500">No selfies found</p>
+          </div>
+        )}
       </div>
     </main>
   );
