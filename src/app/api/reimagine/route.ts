@@ -1,7 +1,6 @@
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import Together from "together-ai";
 import { auth } from "~/server/auth";
-import { db } from "~/server/db";
 import { revalidatePath } from "next/cache";
 import { randomUUID } from "crypto";
 import { fal } from "@fal-ai/client";
@@ -22,7 +21,6 @@ const s3Client = new S3Client({
   },
 });
 
-export const maxDuration = 300; // Set max duration to 300 seconds (5 minutes)
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
