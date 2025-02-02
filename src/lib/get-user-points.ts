@@ -9,9 +9,9 @@ export const getUserPoints = async () => {
   if (!userId) {
     return 0;
   }
-  const points = await db.selfie.findMany({
-    where: { userId },
+  const user = await db.user.findUnique({
+    where: { id: userId },
     select: { points: true },
   });
-  return points.reduce((acc, curr) => acc + curr.points, 0);
+  return user?.points || 0;
 };

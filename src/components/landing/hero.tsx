@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import BackgroundShaderClient from "../background-shader-client";
 import { ScrollIndicator } from "./scroll-indicator";
+import VideoModal from "./video-modal";
 
 export const Hero = () => {
   return (
@@ -39,15 +40,7 @@ export const Hero = () => {
           </p>
 
           <div className="animate-fade-in-up-delay-7 mb-12">
-            <Button
-              size="lg"
-              className="group relative rounded-full bg-white px-10 py-6 text-xl font-semibold tracking-wide text-gray-900 transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
-            >
-              <span className="flex items-center gap-2">
-                Explore Now
-                <SparklesIcon className="h-6 w-6 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-              </span>
-            </Button>
+            <VideoModal />
           </div>
 
           <div className="animate-fade-in-up-delay-7 flex items-center gap-4">

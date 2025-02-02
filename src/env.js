@@ -23,6 +23,8 @@ export const env = createEnv({
     OPENAI_API_KEY: z.string(),
     RESEND_API_KEY: z.string(),
     EMAIL_SENDER: z.string(),
+    REPLICATE_API_TOKEN: z.string(),
+    FAL_KEY: z.string(),
   },
 
   /**
@@ -53,6 +55,8 @@ export const env = createEnv({
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     EMAIL_SENDER: process.env.EMAIL_SENDER,
+    REPLICATE_API_TOKEN: process.env.REPLICATE_API_TOKEN,
+    FAL_KEY: process.env.FAL_KEY,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
