@@ -22,12 +22,20 @@ export const likeSelfie = async (
         where: { id: selfieId },
         data: { points: { increment: 1 } },
       });
+      await db.user.update({
+        where: { id: userId },
+        data: { points: { increment: 1 } },
+      });
     } else {
       await db.like.deleteMany({
         where: { selfieId, userId },
       });
       await db.selfie.update({
         where: { id: selfieId },
+        data: { points: { decrement: 1 } },
+      });
+      await db.user.update({
+        where: { id: userId },
         data: { points: { decrement: 1 } },
       });
     }

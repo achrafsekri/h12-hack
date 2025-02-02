@@ -21,7 +21,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-export function Leaderbord() {
+import { type User } from "@prisma/client";
+
+export function Leaderbord({ topUsers }: { topUsers: User[] }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -48,83 +50,23 @@ export function Leaderbord() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              <TableRow>
-                <TableCell className="font-medium">1</TableCell>
-                <TableCell>
-                  <div className="flex items-center gap-2">
-                    <Avatar className="h-6 w-6">
-                      <AvatarImage src="/placeholder-user.jpg" alt="@shadcn" />
-                      <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                    <span>shadcn</span>
-                  </div>
-                </TableCell>
-                <TableCell className="text-right">12,345</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">2</TableCell>
-                <TableCell>
-                  <div className="flex items-center gap-2">
-                    <Avatar className="h-6 w-6">
-                      <AvatarImage
-                        src="/placeholder-user.jpg"
-                        alt="@jaredpalmer"
-                      />
-                      <AvatarFallback>JP</AvatarFallback>
-                    </Avatar>
-                    <span>jaredpalmer</span>
-                  </div>
-                </TableCell>
-                <TableCell className="text-right">11,987</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">3</TableCell>
-                <TableCell>
-                  <div className="flex items-center gap-2">
-                    <Avatar className="h-6 w-6">
-                      <AvatarImage
-                        src="/placeholder-user.jpg"
-                        alt="@shuding_"
-                      />
-                      <AvatarFallback>SD</AvatarFallback>
-                    </Avatar>
-                    <span>shuding_</span>
-                  </div>
-                </TableCell>
-                <TableCell className="text-right">10,654</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">4</TableCell>
-                <TableCell>
-                  <div className="flex items-center gap-2">
-                    <Avatar className="h-6 w-6">
-                      <AvatarImage
-                        src="/placeholder-user.jpg"
-                        alt="@maxleiter"
-                      />
-                      <AvatarFallback>ML</AvatarFallback>
-                    </Avatar>
-                    <span>maxleiter</span>
-                  </div>
-                </TableCell>
-                <TableCell className="text-right">9,876</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">5</TableCell>
-                <TableCell>
-                  <div className="flex items-center gap-2">
-                    <Avatar className="h-6 w-6">
-                      <AvatarImage
-                        src="/placeholder-user.jpg"
-                        alt="@samselikoff"
-                      />
-                      <AvatarFallback>SS</AvatarFallback>
-                    </Avatar>
-                    <span>samselikoff</span>
-                  </div>
-                </TableCell>
-                <TableCell className="text-right">8,765</TableCell>
-              </TableRow>
+              {topUsers.map((user, index) => (
+                <TableRow key={user.id}>
+                  <TableCell className="font-medium">{index + 1}</TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-2">
+                      <Avatar className="h-6 w-6">
+                        <AvatarImage src={user.image} alt={user.name} />
+                        <AvatarFallback>
+                          {user.email?.charAt(0).toUpperCase()}
+                        </AvatarFallback>
+                      </Avatar>
+                      <span>{user.name}</span>
+                    </div>
+                  </TableCell>
+                  <TableCell className="text-right">{user.points}</TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
         </div>

@@ -26,6 +26,7 @@ const AddPost = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
+  const [prediction, setPrediction] = useState<any>(null);
 
   const {
     previewUrl,
@@ -91,22 +92,27 @@ const AddPost = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to upload image");
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to upload image');
       }
+      
       const data = await response.json();
 
-      //   Handle successful response here
       const reimagineResponse = await fetch("/api/reimagine", {
         method: "POST",
         body: JSON.stringify({ url: data.url }),
       });
+
+      if (!reimagineResponse.ok) {
+        const error = await reimagineResponse.json();
+        throw new Error(error.message || 'Failed to reimagine image');
+      }
+
       const reimagineData = await reimagineResponse.json();
-      console.log("reimagineData", reimagineData);
       setResult(reimagineData.url);
-      //   You might want to handle the response data
     } catch (error) {
       console.error("Error uploading image:", error);
-      // You might want to show an error toast here
+      toast.error(error instanceof Error ? error.message : 'Failed to process image');
     } finally {
       setIsLoading(false);
     }
