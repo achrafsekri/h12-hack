@@ -60,7 +60,7 @@ export const Hero = () => {
                 ))}
               </div>
               <span className="text-sm font-semibold text-white sm:text-base">
-                Visited by 1K+ members
+                Join 50+ hisory lovers
               </span>
             </div>
           </div>
