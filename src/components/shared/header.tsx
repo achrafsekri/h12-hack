@@ -9,6 +9,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "~/components/ui/navigation-menu";
+import { signOut } from "next-auth/react";
 
 interface HeaderProps {
   points?: number;
@@ -95,8 +96,8 @@ export function Header({ points, user }: HeaderProps) {
             </div>
           )}
           {user && (
-            <Button variant="link" className="" asChild>
-              <Link href="/sign-out">Sign Out</Link>
+            <Button variant="link" onClick={() => signOut()} className="">
+              Sign Out
             </Button>
           )}
         </div>

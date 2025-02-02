@@ -1,9 +1,9 @@
 "use client";
-
+import type * as THREE from "three";
+// @ts-ignore
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Center } from "@react-three/drei";
 import { useRef } from "react";
-import * as THREE from "three";
 import { type GLTF } from "three-stdlib";
 
 interface SceneProps {
@@ -26,12 +26,12 @@ function Model({ scrollY }: { scrollY: number }) {
   useFrame(() => {
     if (!meshRef.current) return;
     const rotationSpeed = 0.0015;
-    // meshRef.current.rotation.x = scrollY * rotationSpeed;
     meshRef.current.rotation.y = scrollY * rotationSpeed;
   });
 
   return (
     <Center>
+      {/* @ts-ignore */}
       <primitive
         ref={meshRef}
         object={scene}
@@ -48,11 +48,14 @@ useGLTF.preload("/scene.gltf");
 export default function Scene({ scrollY }: SceneProps) {
   return (
     <div className="relative h-screen w-full">
+      {/* @ts-ignore */}
       <Canvas
         camera={{ position: [50, 0, 0], fov: 45 }}
         className="absolute inset-0"
       >
+        {/* @ts-ignore */}
         <ambientLight intensity={2.1} />
+        {/* @ts-ignore */}
         <pointLight position={[50, 10, 0]} />
         <OrbitControls
           enableZoom={false}

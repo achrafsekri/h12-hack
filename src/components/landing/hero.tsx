@@ -1,11 +1,6 @@
 import { Button } from "~/components/ui/button";
 import Image from "next/image";
-import {
-  ArrowUpRightIcon,
-  CircleArrowOutUpRight,
-  Compass,
-  SparklesIcon,
-} from "lucide-react";
+import { ArrowUpRightIcon, CircleArrowOutUpRight, Compass } from "lucide-react";
 import BackgroundShaderClient from "../background-shader-client";
 import { ScrollIndicator } from "./scroll-indicator";
 import VideoModal from "./video-modal";
@@ -25,7 +20,7 @@ export const Hero = () => {
             <ArrowUpRightIcon className="h-4 w-4 text-gray-700" />
           </div>
 
-          <h1 className="mb-8 animate-fade-in-up-delay-6 font-sans text-7xl font-medium tracking-tight text-white">
+          <h1 className="text-shadow mb-8 animate-fade-in-up-delay-6 font-sans text-7xl font-medium tracking-tight text-white">
             Your{" "}
             <Compass className="inline h-14 w-14 animate-[spin_8s_linear_infinite] text-white" />{" "}
             Journey in{" "}
@@ -40,12 +35,10 @@ export const Hero = () => {
             in the heart of Kasserine
           </p>
 
-          <div className="mb-12 animate-fade-in-up-delay-7">
-            <div className="mb-12 animate-fade-in-up-delay-7">
-              <VideoModal />
-            </div>
+          <div className="animate-fade-in-up-delay-7 space-y-6">
+            <VideoModal />
 
-            {/* <div className="flex animate-fade-in-up-delay-7 items-center gap-4">
+            <div className="flex animate-fade-in-up-delay-7 items-center gap-4">
               <div className="flex -space-x-3">
                 {[1, 2, 3].map((i) => (
                   <div
@@ -64,7 +57,7 @@ export const Hero = () => {
               <span className="text-base font-semibold text-white">
                 Visited by 1K+ members
               </span>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

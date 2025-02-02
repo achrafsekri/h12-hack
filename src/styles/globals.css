@@ -86,6 +86,10 @@
 }
 
 @layer utilities {
+  .text-shadow {
+    text-shadow: 0 0 40px hsla(0, 0%, 0%, 0.4);
+  }
+  
   .text-gradient {
     background: linear-gradient(
       45deg,

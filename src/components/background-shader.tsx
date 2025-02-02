@@ -6,12 +6,12 @@ import clsx from "clsx";
 
 const ShaderGradientCanvas = dynamic(
   () => import("@shadergradient/react").then((mod) => mod.ShaderGradientCanvas),
-  { ssr: false }
+  { ssr: false, loading: () => null },
 );
 
 const ShaderGradient = dynamic(
   () => import("@shadergradient/react").then((mod) => mod.ShaderGradient),
-  { ssr: false }
+  { ssr: false, loading: () => null },
 );
 
 interface BackgroundShaderProps {
@@ -33,7 +33,7 @@ export function BackgroundShader({ className }: BackgroundShaderProps) {
     // Define all event types to prevent
     const eventTypes = [
       "touchstart",
-      "touchmove", 
+      "touchmove",
       "touchend",
       "wheel",
       "gesturestart",
@@ -42,11 +42,11 @@ export function BackgroundShader({ className }: BackgroundShaderProps) {
       "pinch",
       "pinchstart",
       "pinchend",
-      "pinchcancel"
+      "pinchcancel",
     ];
 
     // Add event listeners
-    eventTypes.forEach(eventType => {
+    eventTypes.forEach((eventType) => {
       container.addEventListener(eventType, preventDefault, { passive: false });
     });
 
@@ -60,11 +60,13 @@ export function BackgroundShader({ className }: BackgroundShaderProps) {
       lastTap = now;
     };
 
-    container.addEventListener("touchstart", handleTouchStart, { passive: false });
+    container.addEventListener("touchstart", handleTouchStart, {
+      passive: false,
+    });
 
     // Cleanup function
     return () => {
-      eventTypes.forEach(eventType => {
+      eventTypes.forEach((eventType) => {
         container.removeEventListener(eventType, preventDefault);
       });
       container.removeEventListener("touchstart", handleTouchStart);

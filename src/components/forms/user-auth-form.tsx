@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import * as z from "zod";
 
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Loader2 } from "lucide-react";
@@ -39,28 +39,32 @@ export function UserAuthForm({ className, type, ...props }: UserAuthFormProps) {
   async function onSubmit(data: FormData) {
     setIsLoading(true);
 
-    const signInResult = await signIn("resend", {
-      email: data.email.toLowerCase(),
-      redirect: false,
-      callbackUrl: "/",
-    });
+    try {
+      const signInResult = await signIn("resend", {
+        email: data.email.toLowerCase(),
+        redirect: false,
+        callbackUrl: "/",
+      });
 
-    setIsLoading(false);
+      if (!signInResult?.ok) {
+        throw new Error("Sign in failed");
+      }
 
-    if (!signInResult?.ok) {
-      return toast.error("Quelque chose s'est mal passé", {
+      toast.success("Email envoyé, vérifiez votre boîte de réception", {
+        description: "Vérifiez votre boîte de réception pour continuer.",
+      });
+    } catch (error) {
+      toast.error("Quelque chose s'est mal passé", {
         description: "Veuillez réessayer plus tard.",
       });
+    } finally {
+      setIsLoading(false);
     }
-
-    return toast.success("Email envoyé, vérifiez votre boîte de réception", {
-      description: "Vérifiez votre boîte de réception pour continuer.",
-    });
   }
 
   return (
     <div className={cn("grid gap-6", className)} {...props}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="grid gap-2">
           <div className="grid gap-1">
             <Label className="sr-only" htmlFor="email">
@@ -82,10 +86,14 @@ export function UserAuthForm({ className, type, ...props }: UserAuthFormProps) {
               </p>
             )}
           </div>
-          <button className={cn(buttonVariants())} disabled={isLoading}>
+          <Button
+            type="submit"
+            disabled={isLoading}
+            className="w-full"
+          >
             {isLoading && <Loader2 className="mr-2 size-4 animate-spin" />}
             {type === "register" ? "Creez un compte" : "Se connecter"}
-          </button>
+          </Button>
         </div>
       </form>
     </div>

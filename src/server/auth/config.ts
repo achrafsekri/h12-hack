@@ -1,7 +1,7 @@
 import { PrismaAdapter } from "@auth/prisma-adapter";
+import { env } from "env.mjs";
 import { type DefaultSession, type NextAuthConfig } from "next-auth";
 import Resend from "next-auth/providers/resend";
-import { env } from "~/env";
 
 import { db } from "~/server/db";
 

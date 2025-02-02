@@ -2,10 +2,20 @@
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
  * for Docker builds.
  */
-import "./src/env.js";
+import { type NextConfig } from "next";
+import "./env.mjs";
+import webpack from "webpack";
 
-/** @type {import("next").NextConfig} */
-const config = {
+const nextConfig: NextConfig = {
+  webpack: (config) => {
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^@shadergradient\/react$/,
+      })
+    );
+    return config;
+  },
+
   images: {
     remotePatterns: [
       {
@@ -57,4 +67,4 @@ const config = {
   },
 };
 
-export default config;
+export default nextConfig;
