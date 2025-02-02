@@ -22,7 +22,7 @@ export default async function Assistant() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="fixed bottom-6 z-[80] animate-bounce right-6 size-16 overflow-hidden rounded-full shadow-lg hover:opacity-80">
+        <button className="fixed bottom-6 right-6 z-[80] size-16 animate-bounce overflow-hidden rounded-full shadow-lg hover:opacity-80">
           <Image
             width={56}
             height={56}
