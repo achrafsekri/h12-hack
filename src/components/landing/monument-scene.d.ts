@@ -1,3 +1,7 @@
+//@ts-expect-error error with the module
 declare module "./monument-scene" {
-  export default function MonumentScene(): JSX.Element;
-} 
+  import type { FC } from "react";
+  
+  const MonumentScene: FC;
+  export default MonumentScene;
+}

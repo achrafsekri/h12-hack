@@ -42,7 +42,7 @@ export function UserAuthForm({ className, type, ...props }: UserAuthFormProps) {
     const signInResult = await signIn("resend", {
       email: data.email.toLowerCase(),
       redirect: false,
-      callbackUrl: "/dashboard",
+      callbackUrl: "/",
     });
 
     setIsLoading(false);

@@ -81,7 +81,7 @@ export function Header({ points, user }: HeaderProps) {
 
         {/* Right Navigation */}
         <div className="flex items-center justify-end gap-4">
-          {!user?.email ? (
+          {!user ? (
             <Button
               variant="secondary"
               className="flex items-center gap-1 rounded-full bg-muted"

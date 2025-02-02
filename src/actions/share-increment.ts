@@ -5,12 +5,11 @@ import { auth } from "~/server/auth";
 import { db } from "~/server/db";
 
 export const shareIncrement = async (type: "selfie" | "site", id: string) => {
-  console.log("shareIncrement", type, id);
   const session = await auth();
   const userId = session?.user.id;
 
   if (!userId) {
-    return;
+    throw new Error("User not found");
   }
 
   await db.user.update({

@@ -9,6 +9,7 @@ import {
 import BackgroundShaderClient from "../background-shader-client";
 import { ScrollIndicator } from "./scroll-indicator";
 import VideoModal from "./video-modal";
+import Link from "next/link";
 
 export const Hero = () => {
   return (
@@ -90,18 +91,13 @@ export const Hero = () => {
         {/* Floating Elements */}
         <div className="relative h-full p-8">
           <div className="absolute right-4 top-4 flex animate-fade-in-up-delay-1 items-center gap-3 rounded-2xl bg-white/95 p-4 shadow-lg backdrop-blur-sm">
-            <div className="h-12 w-12 overflow-hidden rounded-full">
-              <Image
-                src="https://randomuser.me/api/portraits/women/32.jpg"
-                alt="Volunteer"
-                width={48}
-                height={48}
-              />
-            </div>
-            <span className="flex items-center gap-2 pr-1 font-medium">
-              We & Our Volunteers
+            <Link
+              href="/sites"
+              className="flex items-center gap-2 pr-1 font-medium"
+            >
+              Explore Monuments
               <CircleArrowOutUpRight className="size-4" />
-            </span>
+            </Link>
           </div>
 
           {/* Environmental Issues Tags */}
