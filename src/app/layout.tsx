@@ -23,6 +23,31 @@ export const metadata: Metadata = {
   title: "Sbiba Heritage Project",
   description:
     "Explore the rich heritage of Sbiba - where ancient Roman and Berber civilizations converge. Discover archaeological treasures, cultural traditions, and the fascinating history of this historic North African crossroads.",
+  openGraph: {
+    type: "website",
+    title: "Sbiba Heritage Project",
+    description:
+      "Discover the enchanting blend of Roman heritage and Berber culture in the heart of Kasserine. Explore archaeological treasures and cultural traditions in this historic North African crossroads.",
+    url: "https://sbiba-heritage.tn",
+    siteName: "Sbiba Heritage Project",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Sbiba Heritage Project - Ancient Roman and Berber Heritage",
+      },
+    ],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sbiba Heritage Project",
+    description:
+      "Discover the enchanting blend of Roman heritage and Berber culture in the heart of Kasserine",
+    images: ["/og.jpg"],
+    creator: "@sbibaheritage",
+  },
   icons: [
     {
       rel: "icon",
@@ -58,7 +83,6 @@ export default async function RootLayout({
   return (
     <html
       suppressHydrationWarning
-      
       lang="en"
       className={`${GeistSans.variable} ${playfair.variable} light`}
     >
