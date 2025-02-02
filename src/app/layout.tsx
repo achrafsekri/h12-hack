@@ -67,7 +67,7 @@ export default async function RootLayout({
           <Header user={user} points={points} />
           <Assistant />
           {children}
-          {/* <BreakpointIndicator /> */}
+          <BreakpointIndicator />
           <Toaster richColors />
           <Footer />
         </ToastProvider>
