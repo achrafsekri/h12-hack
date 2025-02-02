@@ -6,11 +6,11 @@ import { TextRotate } from "@/components/ui/text-rotate";
 
 function TextRotateComponent() {
   return (
-    <div className="font-overusedGrotesk flex h-full w-full animate-fade-in-up-delay-8 flex-row items-center justify-center overflow-hidden bg-white p-8 text-2xl font-light text-foreground dark:text-muted sm:p-20 sm:text-3xl md:p-20 md:text-5xl">
+    <div className="font-overusedGrotesk flex h-full w-full animate-fade-in-up-delay-8 flex-row items-center justify-center overflow-hidden bg-white p-8 text-2xl font-light text-foreground sm:p-20 sm:text-3xl md:p-20 md:text-5xl dark:text-muted">
       <LayoutGroup>
         <motion.p className="flex whitespace-pre" layout>
           <motion.span
-            className="pt-0.5 sm:pt-1 md:pt-2"
+            className="pt-0.5 text-black sm:pt-1 md:pt-2"
             layout
             transition={{ type: "spring", damping: 30, stiffness: 400 }}
           >

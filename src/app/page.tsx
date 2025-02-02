@@ -4,7 +4,6 @@ import { TimeLineHistory } from "~/components/landing/time-line-history";
 import { TextReveal } from "~/components/ui/text-reveal";
 import MonumentScene from "~/components/landing/monument-scene";
 import { VelocityScroll } from "~/components/ui/scroll-based-velocity";
-import Assistant from "~/components/shared/assistant";
 export default function HomePage() {
   return (
     <>

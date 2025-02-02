@@ -30,7 +30,7 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="en"
-      className={`${GeistSans.variable} ${playfair.variable}`}
+      className={`${GeistSans.variable} ${playfair.variable} light`}
     >
       <body>
         <ToastProvider>
