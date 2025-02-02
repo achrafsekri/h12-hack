@@ -12,7 +12,6 @@ import Footer from "~/components/shared/footer";
 import { ToastProvider } from "~/components/ui/toast";
 import { Toaster } from "sonner";
 
-
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
@@ -43,8 +42,6 @@ export default function RootLayout({
           <Toaster richColors />
           <Footer />
         </ToastProvider>
-        
-
       </body>
     </html>
   );
