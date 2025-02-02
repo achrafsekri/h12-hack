@@ -45,7 +45,7 @@ export const Hero = () => {
               <VideoModal />
             </div>
 
-            <div className="flex animate-fade-in-up-delay-7 items-center gap-4">
+            {/* <div className="flex animate-fade-in-up-delay-7 items-center gap-4">
               <div className="flex -space-x-3">
                 {[1, 2, 3].map((i) => (
                   <div
@@ -64,7 +64,7 @@ export const Hero = () => {
               <span className="text-base font-semibold text-white">
                 Visited by 1K+ members
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

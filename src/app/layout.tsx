@@ -31,11 +31,15 @@ export default async function RootLayout({
   const session = await auth();
   const user = session?.user;
 
-  const userdb = await db.user.findUnique({
-    where: {
-      id: user?.id,
-    },
-  });
+  let userdb = null;
+
+  if (user) {
+    userdb = await db.user.findUnique({
+      where: {
+        id: user?.id,
+      },
+    });
+  }
 
   const points = userdb?.points;
 
