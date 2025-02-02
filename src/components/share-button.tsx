@@ -16,9 +16,15 @@ interface ShareButtonProps {
   siteId?: string;
   selfieId?: string;
   title: string;
+  position?: "absolute" | "relative";
 }
 
-export function ShareButton({ siteId, selfieId, title }: ShareButtonProps) {
+export function ShareButton({
+  siteId,
+  selfieId,
+  title,
+  position = "relative",
+}: ShareButtonProps) {
   const type = siteId ? "site" : "selfie";
   const router = useRouter();
   const url = `https://sbiba.gov.tn/${type}/${siteId || selfieId}`;
@@ -59,9 +65,10 @@ export function ShareButton({ siteId, selfieId, title }: ShareButtonProps) {
           variant="ghost"
           size="icon"
           className={clsx(
-            "absolute top-4 z-[60] size-10 rounded-full bg-white/80 text-black hover:bg-white",
+            "top-4 z-[60] size-10 rounded-full bg-white/80 text-black hover:bg-white",
             type === "site" && "right-4",
             type !== "site" && "right-16",
+            position === "absolute" && "absolute",
           )}
         >
           <Share2 className="h-4 w-4" />

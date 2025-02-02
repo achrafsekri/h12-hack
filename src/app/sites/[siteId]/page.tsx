@@ -1,6 +1,7 @@
 import { Map, MapPin, Milestone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { ShareButton } from "~/components/share-button";
 import { Button } from "~/components/ui/button";
 import { getSiteById } from "~/lib/get-sites";
 
@@ -46,6 +47,7 @@ export default async function SitePage({ params }: SitePageProps) {
                     <MapPin className="size-5" />
                   </Link>
                 </Button>
+                <ShareButton title={site.name} siteId={siteId} position="relative" />
               </h1>
             </div>
 
