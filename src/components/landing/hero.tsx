@@ -43,26 +43,7 @@ export const Hero = () => {
             <VideoModal />
           </div>
 
-          <div className="animate-fade-in-up-delay-7 flex items-center gap-4">
-            <div className="flex -space-x-3">
-              {[1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className="h-8 w-8 overflow-hidden rounded-full border-2 border-white shadow-md"
-                >
-                  <Image
-                    src={`https://randomuser.me/api/portraits/men/${i + 20}.jpg`}
-                    alt={`Member ${i}`}
-                    width={48}
-                    height={48}
-                  />
-                </div>
-              ))}
-            </div>
-            <span className="text-base font-semibold text-white">
-              Visited by 1K+ members
-            </span>
-          </div>
+          
         </div>
       </div>
 

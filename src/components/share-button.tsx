@@ -23,7 +23,7 @@ export function ShareButton({
   siteId,
   selfieId,
   title,
-  position = "relative",
+  position = "absolute",
 }: ShareButtonProps) {
   const type = siteId ? "site" : "selfie";
   const router = useRouter();
