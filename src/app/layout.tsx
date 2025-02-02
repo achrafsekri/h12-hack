@@ -12,7 +12,6 @@ import Footer from "~/components/shared/footer";
 import { ToastProvider } from "~/components/ui/toast";
 import { Toaster } from "sonner";
 
-
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
@@ -34,17 +33,14 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${playfair.variable}`}
     >
       <body>
-        <Header />
-
         <ToastProvider>
+          <Header />
           <Assistant />
           {children}
           <BreakpointIndicator />
           <Toaster richColors />
           <Footer />
         </ToastProvider>
-        
-
       </body>
     </html>
   );

@@ -41,7 +41,7 @@ export const Hero = () => {
           <div className="mb-12 animate-fade-in-up-delay-7">
             <Button
               size="lg"
-              className="group relative rounded-full bg-white px-10 py-6 text-xl font-semibold tracking-wide text-gray-900 transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+              className="group relative rounded-full bg-white px-10 py-6 text-xl font-semibold tracking-wide text-gray-900 transition-all duration-300 hover:scale-105 active:scale-95"
             >
               <span className="flex items-center gap-2">
                 Explore Now
