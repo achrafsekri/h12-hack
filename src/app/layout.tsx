@@ -33,9 +33,8 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${playfair.variable}`}
     >
       <body>
-        <Header />
-
         <ToastProvider>
+          <Header />
           <Assistant />
           {children}
           <BreakpointIndicator />

@@ -2,10 +2,10 @@ import { Coins } from "lucide-react";
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
 import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
+    NavigationMenu,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
 } from "~/components/ui/navigation-menu";
 import { getUserPoints } from "~/lib/get-user-points";
 import { auth } from "~/server/auth";
@@ -14,9 +14,10 @@ export async function Header() {
   const session = await auth();
   const user = session?.user;
   const points = await getUserPoints();
+
   return (
     <header className="fixed left-1/2 right-auto top-4 z-50 mx-auto w-[calc(100%-2rem)] max-w-7xl -translate-x-1/2 rounded-full bg-background/80 backdrop-blur-sm">
-      <div className="animate-fade-in-up-delay-8 container grid h-14 grid-cols-3 items-center px-4">
+      <div className="container grid h-14 animate-fade-in-up-delay-8 grid-cols-3 items-center px-4 py-2">
         {/* Left Navigation */}
         <NavigationMenu>
           <NavigationMenuList className="flex gap-1">
@@ -72,7 +73,7 @@ export async function Header() {
               <Link href="/sign-in">Sign In</Link>
             </Button>
           ) : (
-            <div className="flex border border-dashed p-2 rounded-full text-sm items-center gap-1 font-semibold">
+            <div className="flex items-center gap-1 rounded-full border border-dashed p-2 text-sm font-semibold">
               <Coins className="size-4" />
               {points} points
             </div>
