@@ -58,6 +58,7 @@ export default async function RootLayout({
   return (
     <html
       suppressHydrationWarning
+      
       lang="en"
       className={`${GeistSans.variable} ${playfair.variable} light`}
     >
@@ -66,7 +67,7 @@ export default async function RootLayout({
           <Header user={user} points={points} />
           <Assistant />
           {children}
-          <BreakpointIndicator />
+          {/* <BreakpointIndicator /> */}
           <Toaster richColors />
           <Footer />
         </ToastProvider>

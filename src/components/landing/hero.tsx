@@ -1,6 +1,11 @@
 import { Button } from "~/components/ui/button";
 import Image from "next/image";
-import { ArrowUpRightIcon, CircleArrowOutUpRight, Compass } from "lucide-react";
+import {
+  ArrowUpRightIcon,
+  CircleArrowOutUpRight,
+  Compass,
+  ArrowDownLeft,
+} from "lucide-react";
 import BackgroundShaderClient from "../background-shader-client";
 import { ScrollIndicator } from "./scroll-indicator";
 import VideoModal from "./video-modal";
@@ -8,7 +13,7 @@ import Link from "next/link";
 
 export const Hero = () => {
   return (
-    <div className="container relative mx-auto flex flex-col gap-4 overflow-hidden pb-6 lg:flex-row">
+    <div className="container relative mx-auto flex flex-col gap-4 overflow-hidden py-6 lg:flex-row">
       {/* Left Content */}
       <div className="bite-br flex flex-1 animate-fade-in-left items-center justify-center overflow-hidden rounded-3xl bg-[#f3ff8e] px-8 py-12 lg:px-16">
         <BackgroundShaderClient className="absolute inset-0 z-[-1] h-screen w-screen brightness-95" />
@@ -93,21 +98,39 @@ export const Hero = () => {
             </Link>
           </div>
 
-          {/* Environmental Issues Tags */}
-          <div className="absolute left-1/2 top-1/3 -translate-x-1/2 animate-fade-in-up-delay-2">
-            <Button variant="secondary" className="rounded-full shadow-lg">
-              Epic Architecture
-            </Button>
+          {/*  Tags */}
+          <div className="group absolute left-1/2 top-1/3 flex -translate-x-1/2 animate-fade-in-up-delay-2 items-center">
+            <ArrowDownLeft className="h-5 w-5 text-white/80 transition-transform group-hover:scale-110" />
+            <div className="animate-float-1">
+              <Button
+                variant="secondary"
+                className="rounded-full shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+              >
+                Epic Architecture
+              </Button>
+            </div>
           </div>
-          <div className="absolute left-1/4 top-1/2 animate-fade-in-up-delay-3">
-            <Button variant="secondary" className="rounded-full shadow-lg">
-              Roman heritage
-            </Button>
+          <div className="group absolute left-1/4 top-1/2 flex animate-fade-in-up-delay-3 items-center">
+            <ArrowDownLeft className="h-5 w-5 text-white/80 transition-transform group-hover:scale-110" />
+            <div className="animate-float-2">
+              <Button
+                variant="secondary"
+                className="rounded-full shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+              >
+                Roman heritage
+              </Button>
+            </div>
           </div>
-          <div className="absolute right-1/4 top-2/3 animate-fade-in-up-delay-4">
-            <Button variant="secondary" className="rounded-full shadow-lg">
-              Rich history
-            </Button>
+          <div className="group absolute right-1/4 top-2/3 flex animate-fade-in-up-delay-4 items-center">
+            <ArrowDownLeft className="h-5 w-5 text-white/80 transition-transform group-hover:scale-110" />
+            <div className="animate-float-3">
+              <Button
+                variant="secondary"
+                className="rounded-full shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+              >
+                Rich history
+              </Button>
+            </div>
           </div>
 
           {/* Bottom Info */}
