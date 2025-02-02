@@ -5,13 +5,13 @@ import { Phone } from "lucide-react";
 
 export default function StartCall() {
   const { status, connect } = useVoice();
-
+  console.log(status.value);
   return (
     <AnimatePresence>
       {status.value !== "connected" ? (
         <motion.div
           className={
-            "fixed inset-0 w-full h-full flex items-center justify-center bg-background p-4"
+            "fixed inset-0 flex h-full w-full items-center justify-center bg-background p-4"
           }
           initial="initial"
           animate="enter"
@@ -46,7 +46,11 @@ export default function StartCall() {
                     stroke={"currentColor"}
                   />
                 </span>
-                <span>Start Call</span>
+                {status.value === "connecting" ? (
+                  <span>Connecting...</span>
+                ) : (
+                  <span>Start Call</span>
+                )}
               </Button>
             </motion.div>
           </AnimatePresence>

@@ -14,7 +14,7 @@ const Messages = forwardRef<
   return (
     <motion.div
       layoutScroll
-      className={"grow overflow-auto scroll-smooth max-h-full rounded-md p-4"}
+      className={"grow overflow-auto scroll-smooth h-[29rem] rounded-md p-4"}
       ref={ref}
     >
       <motion.div
