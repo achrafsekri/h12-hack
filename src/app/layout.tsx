@@ -11,6 +11,8 @@ import Footer from "~/components/shared/footer";
 
 import { ToastProvider } from "~/components/ui/toast";
 import { Toaster } from "sonner";
+import { auth } from "~/server/auth";
+import { db } from "~/server/db";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -23,9 +25,20 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const session = await auth();
+  const user = session?.user;
+
+  const userdb = await db.user.findUnique({
+    where: {
+      id: user?.id,
+    },
+  });
+
+  const points = userdb?.points;
+
   return (
     <html
       suppressHydrationWarning
@@ -34,7 +47,7 @@ export default function RootLayout({
     >
       <body>
         <ToastProvider>
-          <Header />
+          <Header user={user} points={points} />
           <Assistant />
           {children}
           <BreakpointIndicator />
