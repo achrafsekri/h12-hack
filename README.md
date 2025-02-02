@@ -6,7 +6,7 @@ A web platform dedicated to preserving and sharing the rich cultural heritage of
 
 ## Features
 
-- 🏛️ Interactive 3D monuments exploration
+- 🏛️ Interactive monuments details
 - 📖 Rich historical timeline and cultural insights  
 - 🎯 Gamified learning experience with points system
 - 🖼️ Dynamic image galleries and video content
@@ -24,8 +24,8 @@ A web platform dedicated to preserving and sharing the rich cultural heritage of
 ## Getting Started
 
 1. Clone the repository
-2. Install dependencies: `npm install`
-3. Run development server: `npm run dev`
+2. Install dependencies: `bun install`
+3. Run development server: `bun dev`
 4. Open [http://localhost:3000](http://localhost:3000)
 
 ## Contributing
